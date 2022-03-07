@@ -1,0 +1,36 @@
+<div class="center">
+  <mat-card class="card">
+    <mat-card-title *ngIf="title"> {{ title }} </mat-card-title>
+    <mat-card-content class="center">
+      <ng-container *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </ng-container>
+      <ng-container *ngIf="!isLoading">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container *ngFor="let option of options; let i = index">
+            <ng-container *ngIf="option.type == 'button'" [matColumnDef]="option.columnName">
+              <th mat-header-cell *matHeaderCellDef> {{option.title}} </th>
+              <td mat-cell *matCellDef="let element" class="center">
+                <button *ngIf="option.icon" class="small-button" mat-mini-fab [color]="setIconColor(option.color)"
+                  (click)="onClick(option, element)">
+                  <mat-icon aria-hidden="false" aria-label="Example home icon">{{ option.icon }}</mat-icon>
+                </button>
+                <button *ngIf="!option.icon" class="small-button" mat-mini-fab [color]="setIconColor(option.color)"
+                  (click)="onClick(option, element)">
+                  <mat-icon aria-hidden="false" aria-label="Example home icon">pan_tool</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <ng-container *ngIf="option.type == 'textField'" [matColumnDef]="option.columnName">
+              <th mat-header-cell *matHeaderCellDef> {{option.title}} </th>
+              <td mat-cell *matCellDef="let element"> {{element[option.columnName]}} </td>
+            </ng-container>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayed"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayed"></tr>
+        </table>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+</div>

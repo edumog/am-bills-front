@@ -1,0 +1,15 @@
+.banner {
+  height: 50px;
+  background-color: #424242;
+  padding: 1em;
+  margin-bottom: 1em;
+  color: #FFF;
+}
+
+.banner a {
+  text-decoration: none;
+}
+
+.banner a:visited, .banner a:hover, .banner a:active {
+  color: #FFF;
+}

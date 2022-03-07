@@ -1,0 +1,18 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 70%;
+}
+
+.small-button {
+  transform: scale(0.6);
+}
+
+td.mat-cell, th.mat-header-cell {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}

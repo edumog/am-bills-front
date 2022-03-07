@@ -1,0 +1,11 @@
+<mat-card *ngIf="client" style="margin-bottom: 2em;">
+  <mat-card-title>
+    Facturas de {{ client.name }}
+  </mat-card-title>
+  <mat-card-content>
+    <h3>Nit: {{ client.nit }}</h3>
+    <h3>Correo electrónico: {{ client.email }}</h3>
+  </mat-card-content>
+</mat-card>
+<app-table [dataSource]="bills$ | async" [isLoading]="isLoading$ | async" [tableConfiguration]="options" (buttonClick)="changeStatusBill($event)"></app-table>
+

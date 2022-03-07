@@ -1,0 +1,2 @@
+<app-table [dataSource]="clients$ | async" [isLoading]="isLoading$ | async" [tableConfiguration]="options"
+  (buttonClick)="goToBills($event)"></app-table>
